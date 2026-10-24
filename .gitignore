@@ -1,0 +1,12 @@
+# session tooling
+.remember/
+
+# SolidCraft automatic backups
+*.bak
+
+# third-party models (Raspberry Pi 4, Elecrow 7"): not ours to redistribute, see README
+componenti/*.step
+*-modelli-reali.solidcraft
+
+# temporary exports
+tmp-*
