@@ -42,9 +42,11 @@ I diametri dei fori per gli inserti sono parametri del progetto (`foro_inserto_m
 - `deck-kuman7-pi4-v4.solidcraft`: progetto SolidCraft della versione attuale (parametrico)
 - `deck-v4-assieme.step`: assieme corpo + coperchio in STEP
 - `deck-v4-scocca.stl`, `deck-v4-coperchio.stl`: file da stampare, già riparati e verificati a tenuta
-- `screenshot-*/`, `anteprima-*.png`: immagini delle varie versioni
-- versioni precedenti (v1–v3) per riferimento; la v4 è quella da stampare
-- `script/`: script con cui il deck è stato costruito e verificato
+- `screenshot-v4/`: immagini della v4
+- `old/`: versioni precedenti, solo per riferimento (la v4 è quella da stampare)
+  - `old/v1/`, `old/v2/`, `old/v3/`: progetto, STEP, STL e immagini di ciascuna versione
+  - `old/script/`: gli script che hanno costruito le versioni 2 e 3
+- `script/`: script con cui la v4 è stata costruita e verificata
   - `mcpc.py`: client minimo per il server MCP di SolidCraft
   - `v4gen.py` + `v4run.sh` + `pipeline_v4.sh`: ricostruzione, esportazione e controlli della v4
   - `meshfix.py`: ripara i piccoli difetti di tassellazione degli STL esportati e si rifiuta di scrivere un file non a tenuta

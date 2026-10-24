@@ -10,3 +10,6 @@ componenti/*.step
 
 # temporary exports
 tmp-*
+
+# Python caches
+__pycache__/
