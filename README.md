@@ -62,7 +62,7 @@ A sinistra il deck visto da dietro senza coperchio; a destra una sezione vertica
 - `deck-kuman7-pi4-v6.solidcraft`: progetto SolidCraft della versione attuale (parametrico)
 - `deck-v6-assieme.step`: assieme corpo + coperchio in STEP
 - `deck-v6-scocca.stl`, `deck-v6-coperchio.stl`: file da stampare, già riparati e verificati a tenuta
-- `screenshot-v5/`: immagini della v5, valide anche per la v6 (cambia solo la forma dei dentini)
+- `screenshot-v5/`: immagini della v5, valide anche per la v6 (cambiano solo la forma dei dentini, mezzo millimetro di posizione dei fori e la finestra alzata di 2 mm)
 - `old/`: versioni precedenti, solo per riferimento
   - `old/v1/` … `old/v5/`: progetto, STEP, STL e immagini di ciascuna versione
   - `old/script/`: gli script che hanno costruito le versioni 2–5
@@ -85,7 +85,7 @@ Le verifiche con il Raspberry Pi usano il modello STEP ufficiale, che non è inc
 - **v3**: correzioni per la stampa (smussi a 45° sul bordo a contatto col piano, finestre USB separate, rinforzi sotto le torrette)
 - **v4**: tarata sul modello Elecrow 7″ (C), fori per inserti in ottone, mesh esportata a tenuta. Sul Kuman reale il display non entra.
 - **v5**: dimensionata sulle misure del Kuman reale (linguette, fori, connettore HDMI). Lo schermo è fissato con due dentini in basso e due viti M2,5 in alto; apertura dei connettori allargata per le spine; torrette superiori del coperchio spostate fuori dal percorso delle linguette; niente più pilastrini nel coperchio. Stampata, lo schermo non scivola sotto i dentini: tra linguetta e dentino c'erano solo 0,2 mm, che lo sbalzo stampato annulla.
-- **v6**: dentini spostati indietro di 0,4 mm (0,6 mm di gioco dietro la linguetta) e con uno smusso d'invito da 0,8 mm sullo spigolo d'ingresso; verificata con 0,4 mm di margine di stampa. Il resto è uguale alla v5, coperchio compreso.
+- **v6**: dentini spostati indietro di 0,4 mm (0,6 mm di gioco dietro la linguetta) e con uno smusso d'invito da 0,8 mm sullo spigolo d'ingresso; verificata con 0,4 mm di margine di stampa. Fori delle linguette a 157 mm di interasse in orizzontale (misurato), con basi, inserti e dentini spostati di conseguenza. Finestra alzata di 2 mm, perché l'immagine non è centrata nel vetro (bordo nero di 4,75 mm sopra e 8,7 mm sotto). Coperchio uguale alla v5.
 
 ---
 
@@ -145,7 +145,7 @@ Left: the deck seen from behind without its cover; right: a vertical section thr
 - `deck-kuman7-pi4-v6.solidcraft`: SolidCraft design of the current version (parametric)
 - `deck-v6-assieme.step`: body + cover assembly as STEP
 - `deck-v6-scocca.stl` (body), `deck-v6-coperchio.stl` (cover): print files, already repaired and checked watertight
-- `screenshot-v5/`: images of v5, which also hold for v6 (only the clip shape changed)
+- `screenshot-v5/`: images of v5, which also hold for v6 (only the clip shape, half a millimetre of hole position and the window raised by 2 mm changed)
 - `old/`: earlier versions, for reference only
   - `old/v1/` … `old/v5/`: design, STEP, STL and images of each version
   - `old/script/`: the scripts that built versions 2–5
@@ -168,4 +168,4 @@ The Raspberry Pi checks use the official STEP model, which is not included for l
 - **v3**: printability fixes (45° chamfers on the edge touching the bed, separate USB windows, gussets under the screw bosses)
 - **v4**: fitted to the Elecrow 7″ (C) model, holes for brass inserts, watertight exported mesh. The real Kuman display does not fit.
 - **v5**: sized on the real Kuman's measurements (tabs, holes, HDMI connector). The screen is held by two clips at the bottom and two M2.5 screws at the top; wider connector opening for the plugs; top cover bosses moved out of the tabs' path; no more pillars on the cover. Once printed, the screen does not slide under the clips: there was only 0.2 mm between tab and clip, which the printed overhang closes up.
-- **v6**: clips moved back by 0.4 mm (0.6 mm clearance behind the tab) with a 0.8 mm lead-in chamfer on the entry edge; checked with a 0.4 mm print margin. Everything else matches v5, cover included.
+- **v6**: clips moved back by 0.4 mm (0.6 mm clearance behind the tab) with a 0.8 mm lead-in chamfer on the entry edge; checked with a 0.4 mm print margin. Tab holes 157 mm apart horizontally (measured), with pads, inserts and clips moved to match. Window raised by 2 mm, because the image is not centred in the glass (black border 4.75 mm on top, 8.7 mm below). Cover same as v5.

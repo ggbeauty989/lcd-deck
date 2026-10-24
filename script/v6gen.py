@@ -56,14 +56,15 @@ stages["B1"] = [b([
     cmd("sketch.rectangle.two_point", p0=[-82.75, -50.4], p1=[82.75, 52.8]),
     cmd("sketch.finish"),
     cmd("solid.extrude", distance="pocket_end - lip + 0.5 mm", direction="negative", operation="cut", targets=S, name="TascaVetro"),
+    # the window sits 2 mm above the glass centre: the panel's black border is 4.75 mm on top and 8.7 mm below
     cmd("sketch.create", plane=FACE, offset="1 mm", name="SkFinestra"),
-    cmd("sketch.rectangle.rounded", p0=[-78.5, -44.5], p1=[78.5, 44.5], radius=4),
+    cmd("sketch.rectangle.rounded", p0=[-78.5, -42.5], p1=[78.5, 46.5], radius=4),
     cmd("sketch.finish"),
     cmd("solid.extrude", distance=4, direction="negative", operation="cut", targets=S, name="FinestraSchermo"),
 ])]
 pads = []
 # top tabs: screwed into M2.5 inserts (pad 6.4 mm so the glass can slide up past it during assembly)
-for i, (x, y) in enumerate([(78.05, 56.5), (-78.05, 56.5)]):
+for i, (x, y) in enumerate([(78.5, 56.5), (-78.5, 56.5)]):
     pads += [cmd("sketch.create", plane=FACE, offset="-9 mm", name=f"SkBaseSchermo{i+1}"),
              cmd("sketch.circle.center", center=[x, y], radius=3.2),
              cmd("sketch.finish"),
@@ -75,19 +76,18 @@ for i, (x, y) in enumerate([(78.05, 56.5), (-78.05, 56.5)]):
 # bottom tabs: a plain rest pad in front and a clip behind that overlaps the tab tip by 1.8 mm.
 # The clip face sits 0.6 mm behind the board back (lip 2 + stack 9 = 11) and its entry edge has a 0.8 mm
 # lead-in, so print sag on that overhang and stack tolerance still let the tab slide under it.
-for i, (x, y) in enumerate([(78.05, -58.8), (-78.05, -58.8)]):
-    xc = 78.0 if x > 0 else -78.05
+for i, (x, y) in enumerate([(78.5, -58.8), (-78.5, -58.8)]):
     pads += [cmd("sketch.create", plane=FACE, offset="-9 mm", name=f"SkAppoggioSchermo{i+1}"),
              cmd("sketch.circle.center", center=[x, y], radius=3.5),
              cmd("sketch.finish"),
              cmd("solid.extrude", distance=6.5, direction="positive", operation="join", targets=S, name=f"AppoggioSchermo{i+1}"),
-             cmd("sketch.create", plane={"origin": [xc, 24.9675, 68.5976], "x_dir": [0, 0.342020, 0.939693], "y_dir": [0, 0.939693, -0.342020]}, name=f"SkAggancio{i+1}"),
+             cmd("sketch.create", plane={"origin": [x, 24.9675, 68.5976], "x_dir": [0, 0.342020, 0.939693], "y_dir": [0, 0.939693, -0.342020]}, name=f"SkAggancio{i+1}"),
              cmd("sketch.line", points=[[-66.5, 11.6], [-62.6, 11.6], [-61.8, 12.4], [-61.8, 14.1], [-66.5, 14.1]], closed=True),
              cmd("sketch.finish"),
-             cmd("solid.extrude", distance=11, direction="symmetric", operation="join", targets=S, name=f"Aggancio{i+1}")]
+             cmd("solid.extrude", distance=10.8, direction="symmetric", operation="join", targets=S, name=f"Aggancio{i+1}")]
 stages["B1b"] = [b(pads)]
 stages["B2"] = [b([
-    cmd("solid.chamfer", edges=[[0, 9.7476, 26.7812]], distance=1, name="SmussoFinestra"),
+    cmd("solid.chamfer", edges=[[0, 10.4316, 28.6606]], distance=1, name="SmussoFinestra"),
 ])]
 stages["B3"] = [b([
     cmd("sketch.create", plane=SIDE, name="SkConnettori"),

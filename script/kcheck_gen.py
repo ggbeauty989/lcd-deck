@@ -18,8 +18,8 @@ def screen(prefix, dy, o_extra, y_lo=None):
     """Glass, board, tabs and HDMI shifted by dy; o_extra extends every part backwards (approach sweep)."""
     pb = 11.0 + M  # board back: lip 2 + measured stack 9, plus margin
     parts = [("vetro", -82.35, -50, 82.35, 50, 2.05, 9.4), ("circuito", -82, -50, 82, 50, 9.4, pb),
-             ("lingA_d", 74.05, 50, 82.05, 61.45, 9.4, pb), ("lingA_s", -82.05, 50, -74.05, 61.45, 9.4, pb),
-             ("lingB_d", 74.05, -63.6, 82.05, -50, 9.4, pb), ("lingB_s", -82.05, -63.6, -74.05, -50, 9.4, pb),
+             ("lingA_d", 74.5, 50, 82.5, 61.45, 9.4, pb), ("lingA_s", -82.5, 50, -74.5, 61.45, 9.4, pb),
+             ("lingB_d", 74.5, -63.6, 82.5, -50, 9.4, pb), ("lingB_s", -82.5, -63.6, -74.5, -50, 9.4, pb),
              ("hdmi", 68, 34.1, 83.31, 49.37, 8.0, 13.0)]
     out, names = [], []
     for n, x0, y0, x1, y1, o0, o1 in parts:
@@ -34,7 +34,7 @@ cmds, must_miss = [], []
 for prefix, dy, extra, union in (("montato", 0, 0, None), ("avvicinamento", SH, BACK, None), ("scorrimento", SH, 0, True)):
     b, n = screen(prefix, dy, extra, union)
     cmds += b; must_miss += n
-cmds += blk("cattura_d", 74.05, -63.6, 82.05, -61.0, 9.4, 13.5) + blk("cattura_s", -82.05, -63.6, -74.05, -61.0, 9.4, 13.5)
+cmds += blk("cattura_d", 74.5, -63.6, 82.5, -61.0, 9.4, 13.5) + blk("cattura_s", -82.5, -63.6, -74.5, -61.0, 9.4, 13.5)
 calls = [{"name": "open", "arguments": {"path": D}}, {"name": "batch", "arguments": {"verbose": False, "commands": cmds}}]
 for n in must_miss + ["cattura_d", "cattura_s"]:
     calls.append({"name": "execute", "arguments": {"command": "solid.combine", "params": {"target": n, "tools": ["Scocca"], "operation": "intersect", "keep_tools": True}, "verbose": False}, "tag": n})
