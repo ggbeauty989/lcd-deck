@@ -44,6 +44,17 @@ I diametri dei fori per gli inserti M3 e per le colonnine del Pi sono parametri 
 
 ![Interno: basi e dentini per lo schermo](screenshot-v5/07_interno_basi_e_dentini.png)
 
+#### Montaggio dello schermo, passo per passo
+
+A sinistra il deck visto da dietro senza coperchio; a destra una sezione verticale che passa per le linguette di sinistra (marrone: corpo stampato, scuro: vetro, blu: circuito e linguetta, giallo: vite).
+
+| Fase | Dall'interno | In sezione |
+|---|---|---|
+| 1. Lo schermo arriva da dietro, spostato di 2–3 mm verso l'alto | ![](screenshot-v5/montaggio/1_avvicinamento_interno.png) | ![](screenshot-v5/montaggio/1_avvicinamento_sezione_bassa.png) |
+| 2. Il vetro appoggia sul bordino; la linguetta in basso è sopra il dentino | ![](screenshot-v5/montaggio/2_appoggiato_in_alto_interno.png) | ![](screenshot-v5/montaggio/2_appoggiato_in_alto_sezione_bassa.png) |
+| 3. Lo schermo scivola in basso: la linguetta entra sotto il dentino | ![](screenshot-v5/montaggio/3_scivolato_in_basso_interno.png) | ![](screenshot-v5/montaggio/3_scivolato_in_basso_sezione_bassa.png) |
+| 4. Le due viti in alto entrano negli inserti e bloccano lo schermo | ![](screenshot-v5/montaggio/4_avvitato_interno.png) | ![](screenshot-v5/montaggio/4_avvitato_sezione_alta.png) |
+
 ### Struttura del repository
 
 - `deck-kuman7-pi4-v5.solidcraft`: progetto SolidCraft della versione attuale (parametrico)
@@ -112,6 +123,17 @@ The insert hole diameters for the M3 bosses and the Pi standoffs are design para
 6. Plug in the cables: they all pass through the right-hand side opening. Close the cover with the 4 M3 screws.
 
 ![Inside: screen pads and clips](screenshot-v5/07_interno_basi_e_dentini.png)
+
+#### Fitting the screen, step by step
+
+Left: the deck seen from behind without its cover; right: a vertical section through the left-hand tabs (brown: printed body, dark: glass, blue: board and tab, yellow: screw).
+
+| Step | From inside | In section |
+|---|---|---|
+| 1. The screen comes in from behind, 2–3 mm higher than its final place | ![](screenshot-v5/montaggio/1_avvicinamento_interno.png) | ![](screenshot-v5/montaggio/1_avvicinamento_sezione_bassa.png) |
+| 2. The glass rests on the lip; the bottom tab is above the clip | ![](screenshot-v5/montaggio/2_appoggiato_in_alto_interno.png) | ![](screenshot-v5/montaggio/2_appoggiato_in_alto_sezione_bassa.png) |
+| 3. The screen slides down: the tab goes under the clip | ![](screenshot-v5/montaggio/3_scivolato_in_basso_interno.png) | ![](screenshot-v5/montaggio/3_scivolato_in_basso_sezione_bassa.png) |
+| 4. The two top screws go into the inserts and lock the screen | ![](screenshot-v5/montaggio/4_avvitato_interno.png) | ![](screenshot-v5/montaggio/4_avvitato_sezione_alta.png) |
 
 ### Repository layout
 
