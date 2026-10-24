@@ -11,7 +11,7 @@ files = glob.glob(f"{D}/tmp-c-*.stl")
 scr_parts, pi_parts = [], []
 for f in files:
     t = load(f)
-    (scr_parts if ("Elecrow" in f or t[:, :, 0].min() > 40) else pi_parts).append((f, t))
+    (scr_parts if ("Elecrow" in f or "Kuman" in f or t[:, :, 0].min() > 40) else pi_parts).append((f, t))
 scr = np.concatenate([np.concatenate([t.reshape(-1, 3), dense(t)]) for _, t in scr_parts])
 print("pezzi schermo:", len(scr_parts), " pezzi Pi:", len(pi_parts))
 best = (1e9, None, None)
