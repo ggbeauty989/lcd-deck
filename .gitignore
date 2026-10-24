@@ -13,3 +13,10 @@ tmp-*
 
 # Python caches
 __pycache__/
+
+# build outputs of script/pipeline_v6.sh
+script/v6_*
+script/p6_*
+script/v6exp.json
+script/kcheck.json
+script/kcheck_names.json

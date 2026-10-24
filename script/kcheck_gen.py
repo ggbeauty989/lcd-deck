@@ -1,6 +1,8 @@
-"""Kuman fit and assembly-path check for deck v5: every dummy must miss the body, except the capture probe."""
-import json, math
-D = "/home/roberto/Documenti/SolidCraft/deck-kuman7-pi4-v5.solidcraft"
+"""Kuman fit and assembly-path check for the deck: every dummy must miss the body, except the capture probe."""
+import json, math, sys
+# usage: kcheck_gen.py <design.solidcraft> [margin_mm]; margin thickens the board backwards to cover print sag and stack tolerance
+D = sys.argv[1] if len(sys.argv) > 1 else "/home/roberto/Documenti/SolidCraft/deck-kuman7-pi4-v5.solidcraft"
+M = float(sys.argv[2]) if len(sys.argv) > 2 else 0.0
 c, s = math.cos(math.radians(20)), math.sin(math.radians(20))
 FACE = {"origin": [0, 73 * s, 73 * c], "x_dir": [1, 0, 0], "y_dir": [0, s, c]}
 SH = 2.4          # how far the screen goes in above its final place
@@ -14,9 +16,10 @@ def blk(name, x0, y0, x1, y1, o0, o1):
 
 def screen(prefix, dy, o_extra, y_lo=None):
     """Glass, board, tabs and HDMI shifted by dy; o_extra extends every part backwards (approach sweep)."""
-    parts = [("vetro", -82.35, -50, 82.35, 50, 2.05, 9.3), ("circuito", -82, -50, 82, 50, 9.3, 10.9),
-             ("lingA_d", 74.05, 50, 82.05, 61.45, 9.3, 10.9), ("lingA_s", -82.05, 50, -74.05, 61.45, 9.3, 10.9),
-             ("lingB_d", 74.05, -63.6, 82.05, -50, 9.3, 10.9), ("lingB_s", -82.05, -63.6, -74.05, -50, 9.3, 10.9),
+    pb = 11.0 + M  # board back: lip 2 + measured stack 9, plus margin
+    parts = [("vetro", -82.35, -50, 82.35, 50, 2.05, 9.4), ("circuito", -82, -50, 82, 50, 9.4, pb),
+             ("lingA_d", 74.05, 50, 82.05, 61.45, 9.4, pb), ("lingA_s", -82.05, 50, -74.05, 61.45, 9.4, pb),
+             ("lingB_d", 74.05, -63.6, 82.05, -50, 9.4, pb), ("lingB_s", -82.05, -63.6, -74.05, -50, 9.4, pb),
              ("hdmi", 68, 34.1, 83.31, 49.37, 8.0, 13.0)]
     out, names = [], []
     for n, x0, y0, x1, y1, o0, o1 in parts:
@@ -31,7 +34,7 @@ cmds, must_miss = [], []
 for prefix, dy, extra, union in (("montato", 0, 0, None), ("avvicinamento", SH, BACK, None), ("scorrimento", SH, 0, True)):
     b, n = screen(prefix, dy, extra, union)
     cmds += b; must_miss += n
-cmds += blk("cattura_d", 74.05, -63.6, 82.05, -61.0, 9.3, 12.5) + blk("cattura_s", -82.05, -63.6, -74.05, -61.0, 9.3, 12.5)
+cmds += blk("cattura_d", 74.05, -63.6, 82.05, -61.0, 9.4, 13.5) + blk("cattura_s", -82.05, -63.6, -74.05, -61.0, 9.4, 13.5)
 calls = [{"name": "open", "arguments": {"path": D}}, {"name": "batch", "arguments": {"verbose": False, "commands": cmds}}]
 for n in must_miss + ["cattura_d", "cattura_s"]:
     calls.append({"name": "execute", "arguments": {"command": "solid.combine", "params": {"target": n, "tools": ["Scocca"], "operation": "intersect", "keep_tools": True}, "verbose": False}, "tag": n})

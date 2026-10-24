@@ -2,7 +2,7 @@
 
 **[Italiano](#italiano) · [English](#english)**
 
-![Deck v5](screenshot-v5/01_deck.png)
+![Deck](screenshot-v5/01_deck.png)
 
 ---
 
@@ -10,14 +10,16 @@
 
 Supporto da scrivania stampabile in 3D per un display touch HDMI da 7″ 1024×600 (Kuman SC7BC, scheda "7inch HDMI Display Rev2.5") con un Raspberry Pi 4 montato all'interno. Pensato come "deck" sempre acceso accanto al monitor, per un pannello di stato come [agents-deck](https://github.com/ggbeauty989/agents-deck).
 
-Modellato con [SolidCraft](https://github.com/tangency-labs/solidcraft) tramite il suo server MCP. La v5 è dimensionata sulle misure del display vero.
+Modellato con [SolidCraft](https://github.com/tangency-labs/solidcraft) tramite il suo server MCP. La versione attuale è la v6, dimensionata sulle misure del display vero.
 
-### Cosa stampare (v5)
+### Cosa stampare (v6)
 
 | File | Ingombro | Orientamento | Supporti |
 |---|---|---|---|
-| `deck-v5-scocca.stl` | 180 × 144 × 94 mm | frontale appoggiato sul piano (già orientato) | solo dentro l'apertura dei connettori sul fianco destro |
-| `deck-v5-coperchio.stl` | 180 × 126 × 7,5 mm | faccia esterna sul piano (già orientato) | nessuno |
+| `deck-v6-scocca.stl` | 180 × 144 × 94 mm | frontale appoggiato sul piano (già orientato) | solo dentro l'apertura dei connettori sul fianco destro |
+| `deck-v6-coperchio.stl` | 180 × 126 × 7,5 mm | faccia esterna sul piano (già orientato) | nessuno |
+
+Il coperchio della v6 è identico a quello della v5: se hai già stampato la v5, basta ristampare il corpo.
 
 Consigliati PETG o PLA, strati da 0,2 mm, 3 perimetri, riempimento 15–20 %. Serve un piano da almeno 220 × 220 mm.
 
@@ -57,17 +59,17 @@ A sinistra il deck visto da dietro senza coperchio; a destra una sezione vertica
 
 ### Struttura del repository
 
-- `deck-kuman7-pi4-v5.solidcraft`: progetto SolidCraft della versione attuale (parametrico)
-- `deck-v5-assieme.step`: assieme corpo + coperchio in STEP
-- `deck-v5-scocca.stl`, `deck-v5-coperchio.stl`: file da stampare, già riparati e verificati a tenuta
-- `screenshot-v5/`: immagini della v5
+- `deck-kuman7-pi4-v6.solidcraft`: progetto SolidCraft della versione attuale (parametrico)
+- `deck-v6-assieme.step`: assieme corpo + coperchio in STEP
+- `deck-v6-scocca.stl`, `deck-v6-coperchio.stl`: file da stampare, già riparati e verificati a tenuta
+- `screenshot-v5/`: immagini della v5, valide anche per la v6 (cambia solo la forma dei dentini)
 - `old/`: versioni precedenti, solo per riferimento
-  - `old/v1/` … `old/v4/`: progetto, STEP, STL e immagini di ciascuna versione
-  - `old/script/`: gli script che hanno costruito le versioni 2–4
-- `script/`: script con cui la v5 è stata costruita e verificata
+  - `old/v1/` … `old/v5/`: progetto, STEP, STL e immagini di ciascuna versione
+  - `old/script/`: gli script che hanno costruito le versioni 2–5
+- `script/`: script con cui la v6 è stata costruita e verificata
   - `mcpc.py`: client minimo per il server MCP di SolidCraft
-  - `v5gen.py` + `v5run.sh` + `pipeline_v5.sh`: ricostruzione, esportazione e controlli della v5
-  - `kcheck_gen.py`, `kcheck_report.py`: verifica del display (dalle misure reali) montato, durante l'avvicinamento e durante lo scorrimento sotto i dentini
+  - `v6gen.py` + `v6run.sh` + `pipeline_v6.sh`: ricostruzione, esportazione e controlli della v6
+  - `kcheck_gen.py`, `kcheck_report.py`: verifica del display (dalle misure reali) montato, durante l'avvicinamento e durante lo scorrimento sotto i dentini, con un margine per le tolleranze di stampa (0,4 mm nella pipeline)
   - `meshfix.py`: ripara i piccoli difetti di tassellazione degli STL esportati e si rifiuta di scrivere un file non a tenuta
   - `overhang.py`, `meshclash.py`, `conndist.py`, `standoffdist.py`, `pidist.py`: controlli di sbalzi, interferenze e spazi
   - gli script contengono ancora i percorsi della macchina su cui sono stati usati
@@ -82,7 +84,8 @@ Le verifiche con il Raspberry Pi usano il modello STEP ufficiale, che non è inc
 - **v2**: pareti più spesse, bordi arrotondati, finestra raccordata
 - **v3**: correzioni per la stampa (smussi a 45° sul bordo a contatto col piano, finestre USB separate, rinforzi sotto le torrette)
 - **v4**: tarata sul modello Elecrow 7″ (C), fori per inserti in ottone, mesh esportata a tenuta. Sul Kuman reale il display non entra.
-- **v5**: dimensionata sulle misure del Kuman reale (linguette, fori, connettore HDMI). Lo schermo è fissato con due dentini in basso e due viti M2,5 in alto; apertura dei connettori allargata per le spine; torrette superiori del coperchio spostate fuori dal percorso delle linguette; niente più pilastrini nel coperchio.
+- **v5**: dimensionata sulle misure del Kuman reale (linguette, fori, connettore HDMI). Lo schermo è fissato con due dentini in basso e due viti M2,5 in alto; apertura dei connettori allargata per le spine; torrette superiori del coperchio spostate fuori dal percorso delle linguette; niente più pilastrini nel coperchio. Stampata, lo schermo non scivola sotto i dentini: tra linguetta e dentino c'erano solo 0,2 mm, che lo sbalzo stampato annulla.
+- **v6**: dentini spostati indietro di 0,4 mm (0,6 mm di gioco dietro la linguetta) e con uno smusso d'invito da 0,8 mm sullo spigolo d'ingresso; verificata con 0,4 mm di margine di stampa. Il resto è uguale alla v5, coperchio compreso.
 
 ---
 
@@ -90,14 +93,16 @@ Le verifiche con il Raspberry Pi usano il modello STEP ufficiale, che non è inc
 
 A 3D-printable desk stand for a 7″ 1024×600 HDMI touch display (Kuman SC7BC, board "7inch HDMI Display Rev2.5") with a Raspberry Pi 4 mounted inside. Meant as an always-on "deck" next to your monitor, for a status board such as [agents-deck](https://github.com/ggbeauty989/agents-deck).
 
-Modelled in [SolidCraft](https://github.com/tangency-labs/solidcraft) through its MCP server. v5 is sized on measurements of the real display.
+Modelled in [SolidCraft](https://github.com/tangency-labs/solidcraft) through its MCP server. The current version is v6, sized on measurements of the real display.
 
-### What to print (v5)
+### What to print (v6)
 
 | File | Size | Orientation | Supports |
 |---|---|---|---|
-| `deck-v5-scocca.stl` (body) | 180 × 144 × 94 mm | front face on the bed (already oriented) | only inside the connector opening on the right side |
-| `deck-v5-coperchio.stl` (back cover) | 180 × 126 × 7.5 mm | outer face on the bed (already oriented) | none |
+| `deck-v6-scocca.stl` (body) | 180 × 144 × 94 mm | front face on the bed (already oriented) | only inside the connector opening on the right side |
+| `deck-v6-coperchio.stl` (back cover) | 180 × 126 × 7.5 mm | outer face on the bed (already oriented) | none |
+
+The v6 cover is identical to the v5 one: if you already printed v5, only the body needs reprinting.
 
 PETG or PLA recommended, 0.2 mm layers, 3 perimeters, 15–20 % infill. Needs a bed of at least 220 × 220 mm.
 
@@ -137,17 +142,17 @@ Left: the deck seen from behind without its cover; right: a vertical section thr
 
 ### Repository layout
 
-- `deck-kuman7-pi4-v5.solidcraft`: SolidCraft design of the current version (parametric)
-- `deck-v5-assieme.step`: body + cover assembly as STEP
-- `deck-v5-scocca.stl` (body), `deck-v5-coperchio.stl` (cover): print files, already repaired and checked watertight
-- `screenshot-v5/`: images of v5
+- `deck-kuman7-pi4-v6.solidcraft`: SolidCraft design of the current version (parametric)
+- `deck-v6-assieme.step`: body + cover assembly as STEP
+- `deck-v6-scocca.stl` (body), `deck-v6-coperchio.stl` (cover): print files, already repaired and checked watertight
+- `screenshot-v5/`: images of v5, which also hold for v6 (only the clip shape changed)
 - `old/`: earlier versions, for reference only
-  - `old/v1/` … `old/v4/`: design, STEP, STL and images of each version
-  - `old/script/`: the scripts that built versions 2–4
-- `script/`: scripts that built and checked v5
+  - `old/v1/` … `old/v5/`: design, STEP, STL and images of each version
+  - `old/script/`: the scripts that built versions 2–5
+- `script/`: scripts that built and checked v6
   - `mcpc.py`: minimal client for the SolidCraft MCP server
-  - `v5gen.py` + `v5run.sh` + `pipeline_v5.sh`: rebuild, export and checks of v5
-  - `kcheck_gen.py`, `kcheck_report.py`: check of the display (from real measurements) when mounted, while being fitted and while sliding under the clips
+  - `v6gen.py` + `v6run.sh` + `pipeline_v6.sh`: rebuild, export and checks of v6
+  - `kcheck_gen.py`, `kcheck_report.py`: check of the display (from real measurements) when mounted, while being fitted and while sliding under the clips, with a margin for print tolerances (0.4 mm in the pipeline)
   - `meshfix.py`: repairs the small tessellation defects of exported STLs and refuses to write a file that is not watertight
   - `overhang.py`, `meshclash.py`, `conndist.py`, `standoffdist.py`, `pidist.py`: overhang, interference and clearance checks
   - the scripts still contain paths from the machine they were run on
@@ -162,4 +167,5 @@ The Raspberry Pi checks use the official STEP model, which is not included for l
 - **v2**: thicker walls, rounded edges, rounded screen window
 - **v3**: printability fixes (45° chamfers on the edge touching the bed, separate USB windows, gussets under the screw bosses)
 - **v4**: fitted to the Elecrow 7″ (C) model, holes for brass inserts, watertight exported mesh. The real Kuman display does not fit.
-- **v5**: sized on the real Kuman's measurements (tabs, holes, HDMI connector). The screen is held by two clips at the bottom and two M2.5 screws at the top; wider connector opening for the plugs; top cover bosses moved out of the tabs' path; no more pillars on the cover.
+- **v5**: sized on the real Kuman's measurements (tabs, holes, HDMI connector). The screen is held by two clips at the bottom and two M2.5 screws at the top; wider connector opening for the plugs; top cover bosses moved out of the tabs' path; no more pillars on the cover. Once printed, the screen does not slide under the clips: there was only 0.2 mm between tab and clip, which the printed overhang closes up.
+- **v6**: clips moved back by 0.4 mm (0.6 mm clearance behind the tab) with a 0.8 mm lead-in chamfer on the entry edge; checked with a 0.4 mm print margin. Everything else matches v5, cover included.
