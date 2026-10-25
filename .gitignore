@@ -29,3 +29,6 @@ script/v8exp.json
 script/v9_*
 script/p9_*
 script/v9exp.json
+script/v10_*
+script/p10_*
+script/v10exp.json
