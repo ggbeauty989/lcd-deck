@@ -23,3 +23,6 @@ script/kcheck_names.json
 script/v7_*
 script/p7_*
 script/v7exp.json
+script/v8_*
+script/p8_*
+script/v8exp.json

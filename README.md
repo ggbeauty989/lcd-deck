@@ -10,26 +10,26 @@
 
 Supporto da scrivania stampabile in 3D per un display touch HDMI da 7″ 1024×600 (Kuman SC7BC, scheda "7inch HDMI Display Rev2.5") con un Raspberry Pi 4 montato all'interno. Pensato come "deck" sempre acceso accanto al monitor, per un pannello di stato come [agents-deck](https://github.com/ggbeauty989/agents-deck).
 
-Modellato con [SolidCraft](https://github.com/tangency-labs/solidcraft) tramite il suo server MCP. La versione attuale è la v7, dimensionata sulle misure del display vero.
+Modellato con [SolidCraft](https://github.com/tangency-labs/solidcraft) tramite il suo server MCP. La versione attuale è la v8, dimensionata sulle misure del display vero.
 
-### Cosa stampare (v7)
+### Cosa stampare (v8)
 
 | File | Ingombro | Orientamento | Supporti |
 |---|---|---|---|
-| `deck-v7-scocca.stl` | 180 × 144 × 94 mm | frontale appoggiato sul piano (già orientato) | solo dentro l'apertura dei connettori sul fianco destro |
-| `deck-v7-coperchio.stl` | 180 × 126 × 7,5 mm | faccia esterna sul piano (già orientato) | nessuno |
+| `deck-v8-scocca.stl` | 180 × 144 × 94 mm | frontale appoggiato sul piano (già orientato) | solo dentro l'apertura dei connettori sul fianco destro |
+| `deck-v8-coperchio.stl` | 180 × 126 × 7,5 mm | faccia esterna sul piano (già orientato) | nessuno |
 
-Il coperchio della v7 è identico a quello della v5 e della v6: se ne hai già stampato uno, basta ristampare il corpo.
+Il coperchio della v8 è identico a quello delle versioni dalla v5 alla v7: se ne hai già stampato uno, basta ristampare il corpo.
 
 Consigliati PETG o PLA, strati da 0,2 mm, 3 perimetri, riempimento 15–20 %. Serve un piano da almeno 220 × 220 mm.
 
 ### Materiale
 
-- 4 inserti a caldo in ottone **M3 × 4 mm** (diametro esterno 5 mm) nelle torrette del corpo, per il coperchio
-- 6 inserti a caldo in ottone **M2,5 × 4 mm** (diametro esterno 3,5 mm): 4 nelle colonnine del coperchio per il Raspberry Pi, 2 nelle basi in alto per lo schermo
+- 6 inserti a caldo in ottone **M3 × 4 mm** (diametro esterno 5 mm): 4 nelle torrette del corpo per il coperchio, 2 nelle basi in alto per lo schermo
+- 4 inserti a caldo in ottone **M2,5 × 4 mm** (diametro esterno 3,5 mm) nelle colonnine del coperchio per il Raspberry Pi
 - 4 viti **M3 × 6** a testa svasata per chiudere il coperchio
 - 4 viti **M2,5 × 5** per il Raspberry Pi
-- 2 viti **M2,5 × 6** per le linguette in alto dello schermo (i fori delle linguette sono da 2,9 mm)
+- 2 viti **M3 × 5** o **M3 × 6** per le linguette in alto dello schermo. I fori delle linguette sono da 2,9–3 mm: se la vite non passa, ripassali con una punta da 3,2 mm
 - 4 piedini in gomma adesivi da 12 mm (opzionali, negli incavi sotto la base)
 - cavo corto micro-HDMI → HDMI, cavo corto micro-USB per il touch, alimentatore USB-C per il Pi
 
@@ -37,10 +37,10 @@ I diametri dei fori per gli inserti M3 e per le colonnine del Pi sono parametri 
 
 ### Montaggio
 
-1. Scalda e inserisci gli inserti: M3 nelle 4 torrette del corpo, M2,5 nelle 2 basi in alto dentro la cornice e nelle 4 colonnine del coperchio.
+1. Scalda e inserisci gli inserti: M3 nelle 4 torrette del corpo e nelle 2 basi in alto dentro la cornice, M2,5 nelle 4 colonnine del coperchio.
 2. Inserisci lo schermo da dietro, vetro verso il frontale e connettori sul lato destro (guardando il deck da davanti). Infilalo spostato di 2–3 mm verso l'alto (il lato con le feritoie) e appoggialo sul bordino frontale.
 3. Fallo scivolare verso il basso: le due linguette in basso entrano sotto i due dentini.
-4. Avvita le due linguette in alto nelle loro basi con le viti M2,5 × 6: tengono lo schermo premuto contro il bordino e gli impediscono di risalire.
+4. Avvita le due linguette in alto nelle loro basi con le viti M3: tengono lo schermo premuto contro il bordino e gli impediscono di risalire.
 5. Avvita il Raspberry Pi sulle colonnine del coperchio, componenti verso lo schermo, con le porte USB/Ethernet verso il fianco sinistro.
 6. Collega i cavi: passano tutti dall'apertura laterale destra. Chiudi il coperchio con le 4 viti M3.
 
@@ -59,16 +59,16 @@ A sinistra il deck visto da dietro senza coperchio; a destra una sezione vertica
 
 ### Struttura del repository
 
-- `deck-kuman7-pi4-v7.solidcraft`: progetto SolidCraft della versione attuale (parametrico)
-- `deck-v7-assieme.step`: assieme corpo + coperchio in STEP
-- `deck-v7-scocca.stl`, `deck-v7-coperchio.stl`: file da stampare, già riparati e verificati a tenuta
-- `screenshot-v5/`: immagini della v5, valide anche per la v7 (cambiano la forma dei dentini, mezzo millimetro di posizione dei fori e la finestra, più grande e spostata sull'immagine)
+- `deck-kuman7-pi4-v8.solidcraft`: progetto SolidCraft della versione attuale (parametrico)
+- `deck-v8-assieme.step`: assieme corpo + coperchio in STEP
+- `deck-v8-scocca.stl`, `deck-v8-coperchio.stl`: file da stampare, già riparati e verificati a tenuta
+- `screenshot-v5/`: immagini della v5, valide anche per la v8 (cambiano la forma dei dentini e delle basi in alto, mezzo millimetro di posizione dei fori e la finestra, più grande e spostata sull'immagine)
 - `old/`: versioni precedenti, solo per riferimento
-  - `old/v1/` … `old/v6/`: progetto, STEP, STL e immagini di ciascuna versione
-  - `old/script/`: gli script che hanno costruito le versioni 2–6
-- `script/`: script con cui la v7 è stata costruita e verificata
+  - `old/v1/` … `old/v7/`: progetto, STEP, STL e immagini di ciascuna versione
+  - `old/script/`: gli script che hanno costruito le versioni 2–7
+- `script/`: script con cui la v8 è stata costruita e verificata
   - `mcpc.py`: client minimo per il server MCP di SolidCraft
-  - `v7gen.py` + `v7run.sh` + `pipeline_v7.sh`: ricostruzione, esportazione e controlli della v7
+  - `v8gen.py` + `v8run.sh` + `pipeline_v8.sh`: ricostruzione, esportazione e controlli della v8
   - `kcheck_gen.py`, `kcheck_report.py`: verifica del display (dalle misure reali) montato, durante l'avvicinamento e durante lo scorrimento sotto i dentini, con un margine per le tolleranze di stampa (0,4 mm nella pipeline)
   - `meshfix.py`: ripara i piccoli difetti di tassellazione degli STL esportati e si rifiuta di scrivere un file non a tenuta
   - `overhang.py`, `meshclash.py`, `conndist.py`, `standoffdist.py`, `pidist.py`: controlli di sbalzi, interferenze e spazi
@@ -87,6 +87,7 @@ Le verifiche con il Raspberry Pi usano il modello STEP ufficiale, che non è inc
 - **v5**: dimensionata sulle misure del Kuman reale (linguette, fori, connettore HDMI). Lo schermo è fissato con due dentini in basso e due viti M2,5 in alto; apertura dei connettori allargata per le spine; torrette superiori del coperchio spostate fuori dal percorso delle linguette; niente più pilastrini nel coperchio. Stampata, lo schermo non scivola sotto i dentini: tra linguetta e dentino c'erano solo 0,2 mm, che lo sbalzo stampato annulla.
 - **v6**: dentini spostati indietro di 0,4 mm (0,6 mm di gioco dietro la linguetta) e con uno smusso d'invito da 0,8 mm sullo spigolo d'ingresso; verificata con 0,4 mm di margine di stampa. Fori delle linguette a 157 mm di interasse in orizzontale (misurato), con basi, inserti e dentini spostati di conseguenza. Finestra alzata di 2 mm, perché l'immagine non è centrata nel vetro (bordo nero di 4,75 mm sopra e 8,7 mm sotto). Coperchio uguale alla v5. Stampata, i dentini funzionano ma l'immagine viene tagliata sul lato opposto all'HDMI: in orizzontale non è centrata nel vetro, e la finestra lasciava solo 1,4 mm di margine.
 - **v7**: finestra centrata sull'immagine misurata (bordo nero del vetro: 4,75 mm sopra, 8,5 sotto, 6,3 sul lato HDMI, 3,45 sul lato opposto) e più grande, con 2,5 mm di margine attorno all'immagine (2,25 sul lato opposto all'HDMI, per tenere almeno 1,2 mm di vetro sotto la cornice). Il resto è uguale alla v6.
+- **v8**: le basi in alto dello schermo prendono inserti M3 invece di M2,5 (foro Ø4,2, profondo 5 mm). Sono rettangolari, 9 × 8 mm, e cominciano subito sopra il vetro sollevato durante l'inserimento: sotto l'inserto restano 1,4 mm di parete, sugli altri lati 2,4. Le colonnine del Raspberry Pi restano M2,5. Il resto è uguale alla v7.
 
 ---
 
@@ -94,26 +95,26 @@ Le verifiche con il Raspberry Pi usano il modello STEP ufficiale, che non è inc
 
 A 3D-printable desk stand for a 7″ 1024×600 HDMI touch display (Kuman SC7BC, board "7inch HDMI Display Rev2.5") with a Raspberry Pi 4 mounted inside. Meant as an always-on "deck" next to your monitor, for a status board such as [agents-deck](https://github.com/ggbeauty989/agents-deck).
 
-Modelled in [SolidCraft](https://github.com/tangency-labs/solidcraft) through its MCP server. The current version is v7, sized on measurements of the real display.
+Modelled in [SolidCraft](https://github.com/tangency-labs/solidcraft) through its MCP server. The current version is v8, sized on measurements of the real display.
 
-### What to print (v7)
+### What to print (v8)
 
 | File | Size | Orientation | Supports |
 |---|---|---|---|
-| `deck-v7-scocca.stl` (body) | 180 × 144 × 94 mm | front face on the bed (already oriented) | only inside the connector opening on the right side |
-| `deck-v7-coperchio.stl` (back cover) | 180 × 126 × 7.5 mm | outer face on the bed (already oriented) | none |
+| `deck-v8-scocca.stl` (body) | 180 × 144 × 94 mm | front face on the bed (already oriented) | only inside the connector opening on the right side |
+| `deck-v8-coperchio.stl` (back cover) | 180 × 126 × 7.5 mm | outer face on the bed (already oriented) | none |
 
-The v7 cover is identical to the v5 and v6 ones: if you already printed one, only the body needs reprinting.
+The v8 cover is identical to the v5 to v7 ones: if you already printed one, only the body needs reprinting.
 
 PETG or PLA recommended, 0.2 mm layers, 3 perimeters, 15–20 % infill. Needs a bed of at least 220 × 220 mm.
 
 ### Parts
 
-- 4 brass heat-set inserts **M3 × 4 mm** (5 mm outer diameter) in the body's bosses, for the cover
-- 6 brass heat-set inserts **M2.5 × 4 mm** (3.5 mm outer diameter): 4 in the cover's Pi standoffs, 2 in the top screen pads
+- 6 brass heat-set inserts **M3 × 4 mm** (5 mm outer diameter): 4 in the body's bosses for the cover, 2 in the top screen pads
+- 4 brass heat-set inserts **M2.5 × 4 mm** (3.5 mm outer diameter) in the cover's Pi standoffs
 - 4 **M3 × 6** countersunk screws to close the cover
 - 4 **M2.5 × 5** screws for the Raspberry Pi
-- 2 **M2.5 × 6** screws for the screen's top tabs (the tab holes are 2.9 mm)
+- 2 **M3 × 5** or **M3 × 6** screws for the screen's top tabs. The tab holes are 2.9–3 mm: if the screw does not go through, open them up with a 3.2 mm drill bit
 - 4 adhesive 12 mm rubber feet (optional, in the recesses under the base)
 - short micro-HDMI → HDMI cable, short micro-USB cable for touch, USB-C power supply for the Pi
 
@@ -121,10 +122,10 @@ The insert hole diameters for the M3 bosses and the Pi standoffs are design para
 
 ### Assembly
 
-1. Heat-set the inserts: M3 into the body's 4 bosses, M2.5 into the 2 top pads inside the frame and into the cover's 4 standoffs.
+1. Heat-set the inserts: M3 into the body's 4 bosses and the 2 top pads inside the frame, M2.5 into the cover's 4 standoffs.
 2. Fit the screen from behind, glass towards the front and connectors on the right side (as seen from the front). Put it in 2–3 mm higher than its final place (towards the side with the vents) and lay it on the front lip.
 3. Slide it down: the two bottom tabs go under the two clips.
-4. Screw the two top tabs to their pads with the M2.5 × 6 screws: they hold the screen against the lip and stop it from sliding back up.
+4. Screw the two top tabs to their pads with the M3 screws: they hold the screen against the lip and stop it from sliding back up.
 5. Screw the Raspberry Pi onto the cover's standoffs, components facing the screen, USB/Ethernet ports towards the left side.
 6. Plug in the cables: they all pass through the right-hand side opening. Close the cover with the 4 M3 screws.
 
@@ -143,16 +144,16 @@ Left: the deck seen from behind without its cover; right: a vertical section thr
 
 ### Repository layout
 
-- `deck-kuman7-pi4-v7.solidcraft`: SolidCraft design of the current version (parametric)
-- `deck-v7-assieme.step`: body + cover assembly as STEP
-- `deck-v7-scocca.stl` (body), `deck-v7-coperchio.stl` (cover): print files, already repaired and checked watertight
-- `screenshot-v5/`: images of v5, which also hold for v7 (the clip shape, half a millimetre of hole position and the window, now larger and moved onto the image, changed)
+- `deck-kuman7-pi4-v8.solidcraft`: SolidCraft design of the current version (parametric)
+- `deck-v8-assieme.step`: body + cover assembly as STEP
+- `deck-v8-scocca.stl` (body), `deck-v8-coperchio.stl` (cover): print files, already repaired and checked watertight
+- `screenshot-v5/`: images of v5, which also hold for v8 (the shape of the clips and top pads, half a millimetre of hole position and the window, now larger and moved onto the image, changed)
 - `old/`: earlier versions, for reference only
-  - `old/v1/` … `old/v6/`: design, STEP, STL and images of each version
-  - `old/script/`: the scripts that built versions 2–6
-- `script/`: scripts that built and checked v7
+  - `old/v1/` … `old/v7/`: design, STEP, STL and images of each version
+  - `old/script/`: the scripts that built versions 2–7
+- `script/`: scripts that built and checked v8
   - `mcpc.py`: minimal client for the SolidCraft MCP server
-  - `v7gen.py` + `v7run.sh` + `pipeline_v7.sh`: rebuild, export and checks of v7
+  - `v8gen.py` + `v8run.sh` + `pipeline_v8.sh`: rebuild, export and checks of v8
   - `kcheck_gen.py`, `kcheck_report.py`: check of the display (from real measurements) when mounted, while being fitted and while sliding under the clips, with a margin for print tolerances (0.4 mm in the pipeline)
   - `meshfix.py`: repairs the small tessellation defects of exported STLs and refuses to write a file that is not watertight
   - `overhang.py`, `meshclash.py`, `conndist.py`, `standoffdist.py`, `pidist.py`: overhang, interference and clearance checks
@@ -171,3 +172,4 @@ The Raspberry Pi checks use the official STEP model, which is not included for l
 - **v5**: sized on the real Kuman's measurements (tabs, holes, HDMI connector). The screen is held by two clips at the bottom and two M2.5 screws at the top; wider connector opening for the plugs; top cover bosses moved out of the tabs' path; no more pillars on the cover. Once printed, the screen does not slide under the clips: there was only 0.2 mm between tab and clip, which the printed overhang closes up.
 - **v6**: clips moved back by 0.4 mm (0.6 mm clearance behind the tab) with a 0.8 mm lead-in chamfer on the entry edge; checked with a 0.4 mm print margin. Tab holes 157 mm apart horizontally (measured), with pads, inserts and clips moved to match. Window raised by 2 mm, because the image is not centred in the glass (black border 4.75 mm on top, 8.7 mm below). Cover same as v5. Once printed, the clips work but the image is cut on the side away from the HDMI: it is not centred in the glass horizontally, and the window left only 1.4 mm of margin.
 - **v7**: window centred on the measured image (black border of the glass: 4.75 mm on top, 8.5 below, 6.3 on the HDMI side, 3.45 on the other side) and larger, with 2.5 mm of margin around the image (2.25 on the side away from the HDMI, to keep at least 1.2 mm of glass under the frame). Everything else matches v6.
+- **v8**: the top screen pads take M3 inserts instead of M2.5 (4.2 mm hole, 5 mm deep). They are rectangular, 9 × 8 mm, and start right above the glass when it is pushed up during fitting: 1.4 mm of wall below the insert, 2.4 mm on the other sides. The Raspberry Pi standoffs stay M2.5. Everything else matches v7.
