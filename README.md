@@ -10,16 +10,16 @@
 
 Supporto da scrivania stampabile in 3D per un display touch HDMI da 7″ 1024×600 (Kuman SC7BC, scheda "7inch HDMI Display Rev2.5") con un Raspberry Pi 4 montato all'interno. Pensato come "deck" sempre acceso accanto al monitor, per un pannello di stato come [agents-deck](https://github.com/ggbeauty989/agents-deck).
 
-Modellato con [SolidCraft](https://github.com/tangency-labs/solidcraft) tramite il suo server MCP. La versione attuale è la v6, dimensionata sulle misure del display vero.
+Modellato con [SolidCraft](https://github.com/tangency-labs/solidcraft) tramite il suo server MCP. La versione attuale è la v7, dimensionata sulle misure del display vero.
 
-### Cosa stampare (v6)
+### Cosa stampare (v7)
 
 | File | Ingombro | Orientamento | Supporti |
 |---|---|---|---|
-| `deck-v6-scocca.stl` | 180 × 144 × 94 mm | frontale appoggiato sul piano (già orientato) | solo dentro l'apertura dei connettori sul fianco destro |
-| `deck-v6-coperchio.stl` | 180 × 126 × 7,5 mm | faccia esterna sul piano (già orientato) | nessuno |
+| `deck-v7-scocca.stl` | 180 × 144 × 94 mm | frontale appoggiato sul piano (già orientato) | solo dentro l'apertura dei connettori sul fianco destro |
+| `deck-v7-coperchio.stl` | 180 × 126 × 7,5 mm | faccia esterna sul piano (già orientato) | nessuno |
 
-Il coperchio della v6 è identico a quello della v5: se hai già stampato la v5, basta ristampare il corpo.
+Il coperchio della v7 è identico a quello della v5 e della v6: se ne hai già stampato uno, basta ristampare il corpo.
 
 Consigliati PETG o PLA, strati da 0,2 mm, 3 perimetri, riempimento 15–20 %. Serve un piano da almeno 220 × 220 mm.
 
@@ -59,16 +59,16 @@ A sinistra il deck visto da dietro senza coperchio; a destra una sezione vertica
 
 ### Struttura del repository
 
-- `deck-kuman7-pi4-v6.solidcraft`: progetto SolidCraft della versione attuale (parametrico)
-- `deck-v6-assieme.step`: assieme corpo + coperchio in STEP
-- `deck-v6-scocca.stl`, `deck-v6-coperchio.stl`: file da stampare, già riparati e verificati a tenuta
-- `screenshot-v5/`: immagini della v5, valide anche per la v6 (cambiano solo la forma dei dentini, mezzo millimetro di posizione dei fori e la finestra alzata di 2 mm)
+- `deck-kuman7-pi4-v7.solidcraft`: progetto SolidCraft della versione attuale (parametrico)
+- `deck-v7-assieme.step`: assieme corpo + coperchio in STEP
+- `deck-v7-scocca.stl`, `deck-v7-coperchio.stl`: file da stampare, già riparati e verificati a tenuta
+- `screenshot-v5/`: immagini della v5, valide anche per la v7 (cambiano la forma dei dentini, mezzo millimetro di posizione dei fori e la finestra, più grande e spostata sull'immagine)
 - `old/`: versioni precedenti, solo per riferimento
-  - `old/v1/` … `old/v5/`: progetto, STEP, STL e immagini di ciascuna versione
-  - `old/script/`: gli script che hanno costruito le versioni 2–5
-- `script/`: script con cui la v6 è stata costruita e verificata
+  - `old/v1/` … `old/v6/`: progetto, STEP, STL e immagini di ciascuna versione
+  - `old/script/`: gli script che hanno costruito le versioni 2–6
+- `script/`: script con cui la v7 è stata costruita e verificata
   - `mcpc.py`: client minimo per il server MCP di SolidCraft
-  - `v6gen.py` + `v6run.sh` + `pipeline_v6.sh`: ricostruzione, esportazione e controlli della v6
+  - `v7gen.py` + `v7run.sh` + `pipeline_v7.sh`: ricostruzione, esportazione e controlli della v7
   - `kcheck_gen.py`, `kcheck_report.py`: verifica del display (dalle misure reali) montato, durante l'avvicinamento e durante lo scorrimento sotto i dentini, con un margine per le tolleranze di stampa (0,4 mm nella pipeline)
   - `meshfix.py`: ripara i piccoli difetti di tassellazione degli STL esportati e si rifiuta di scrivere un file non a tenuta
   - `overhang.py`, `meshclash.py`, `conndist.py`, `standoffdist.py`, `pidist.py`: controlli di sbalzi, interferenze e spazi
@@ -85,7 +85,8 @@ Le verifiche con il Raspberry Pi usano il modello STEP ufficiale, che non è inc
 - **v3**: correzioni per la stampa (smussi a 45° sul bordo a contatto col piano, finestre USB separate, rinforzi sotto le torrette)
 - **v4**: tarata sul modello Elecrow 7″ (C), fori per inserti in ottone, mesh esportata a tenuta. Sul Kuman reale il display non entra.
 - **v5**: dimensionata sulle misure del Kuman reale (linguette, fori, connettore HDMI). Lo schermo è fissato con due dentini in basso e due viti M2,5 in alto; apertura dei connettori allargata per le spine; torrette superiori del coperchio spostate fuori dal percorso delle linguette; niente più pilastrini nel coperchio. Stampata, lo schermo non scivola sotto i dentini: tra linguetta e dentino c'erano solo 0,2 mm, che lo sbalzo stampato annulla.
-- **v6**: dentini spostati indietro di 0,4 mm (0,6 mm di gioco dietro la linguetta) e con uno smusso d'invito da 0,8 mm sullo spigolo d'ingresso; verificata con 0,4 mm di margine di stampa. Fori delle linguette a 157 mm di interasse in orizzontale (misurato), con basi, inserti e dentini spostati di conseguenza. Finestra alzata di 2 mm, perché l'immagine non è centrata nel vetro (bordo nero di 4,75 mm sopra e 8,7 mm sotto). Coperchio uguale alla v5.
+- **v6**: dentini spostati indietro di 0,4 mm (0,6 mm di gioco dietro la linguetta) e con uno smusso d'invito da 0,8 mm sullo spigolo d'ingresso; verificata con 0,4 mm di margine di stampa. Fori delle linguette a 157 mm di interasse in orizzontale (misurato), con basi, inserti e dentini spostati di conseguenza. Finestra alzata di 2 mm, perché l'immagine non è centrata nel vetro (bordo nero di 4,75 mm sopra e 8,7 mm sotto). Coperchio uguale alla v5. Stampata, i dentini funzionano ma l'immagine viene tagliata sul lato opposto all'HDMI: in orizzontale non è centrata nel vetro, e la finestra lasciava solo 1,4 mm di margine.
+- **v7**: finestra centrata sull'immagine misurata (bordo nero del vetro: 4,75 mm sopra, 8,5 sotto, 6,3 sul lato HDMI, 3,45 sul lato opposto) e più grande, con 2,5 mm di margine attorno all'immagine (2,25 sul lato opposto all'HDMI, per tenere almeno 1,2 mm di vetro sotto la cornice). Il resto è uguale alla v6.
 
 ---
 
@@ -93,16 +94,16 @@ Le verifiche con il Raspberry Pi usano il modello STEP ufficiale, che non è inc
 
 A 3D-printable desk stand for a 7″ 1024×600 HDMI touch display (Kuman SC7BC, board "7inch HDMI Display Rev2.5") with a Raspberry Pi 4 mounted inside. Meant as an always-on "deck" next to your monitor, for a status board such as [agents-deck](https://github.com/ggbeauty989/agents-deck).
 
-Modelled in [SolidCraft](https://github.com/tangency-labs/solidcraft) through its MCP server. The current version is v6, sized on measurements of the real display.
+Modelled in [SolidCraft](https://github.com/tangency-labs/solidcraft) through its MCP server. The current version is v7, sized on measurements of the real display.
 
-### What to print (v6)
+### What to print (v7)
 
 | File | Size | Orientation | Supports |
 |---|---|---|---|
-| `deck-v6-scocca.stl` (body) | 180 × 144 × 94 mm | front face on the bed (already oriented) | only inside the connector opening on the right side |
-| `deck-v6-coperchio.stl` (back cover) | 180 × 126 × 7.5 mm | outer face on the bed (already oriented) | none |
+| `deck-v7-scocca.stl` (body) | 180 × 144 × 94 mm | front face on the bed (already oriented) | only inside the connector opening on the right side |
+| `deck-v7-coperchio.stl` (back cover) | 180 × 126 × 7.5 mm | outer face on the bed (already oriented) | none |
 
-The v6 cover is identical to the v5 one: if you already printed v5, only the body needs reprinting.
+The v7 cover is identical to the v5 and v6 ones: if you already printed one, only the body needs reprinting.
 
 PETG or PLA recommended, 0.2 mm layers, 3 perimeters, 15–20 % infill. Needs a bed of at least 220 × 220 mm.
 
@@ -142,16 +143,16 @@ Left: the deck seen from behind without its cover; right: a vertical section thr
 
 ### Repository layout
 
-- `deck-kuman7-pi4-v6.solidcraft`: SolidCraft design of the current version (parametric)
-- `deck-v6-assieme.step`: body + cover assembly as STEP
-- `deck-v6-scocca.stl` (body), `deck-v6-coperchio.stl` (cover): print files, already repaired and checked watertight
-- `screenshot-v5/`: images of v5, which also hold for v6 (only the clip shape, half a millimetre of hole position and the window raised by 2 mm changed)
+- `deck-kuman7-pi4-v7.solidcraft`: SolidCraft design of the current version (parametric)
+- `deck-v7-assieme.step`: body + cover assembly as STEP
+- `deck-v7-scocca.stl` (body), `deck-v7-coperchio.stl` (cover): print files, already repaired and checked watertight
+- `screenshot-v5/`: images of v5, which also hold for v7 (the clip shape, half a millimetre of hole position and the window, now larger and moved onto the image, changed)
 - `old/`: earlier versions, for reference only
-  - `old/v1/` … `old/v5/`: design, STEP, STL and images of each version
-  - `old/script/`: the scripts that built versions 2–5
-- `script/`: scripts that built and checked v6
+  - `old/v1/` … `old/v6/`: design, STEP, STL and images of each version
+  - `old/script/`: the scripts that built versions 2–6
+- `script/`: scripts that built and checked v7
   - `mcpc.py`: minimal client for the SolidCraft MCP server
-  - `v6gen.py` + `v6run.sh` + `pipeline_v6.sh`: rebuild, export and checks of v6
+  - `v7gen.py` + `v7run.sh` + `pipeline_v7.sh`: rebuild, export and checks of v7
   - `kcheck_gen.py`, `kcheck_report.py`: check of the display (from real measurements) when mounted, while being fitted and while sliding under the clips, with a margin for print tolerances (0.4 mm in the pipeline)
   - `meshfix.py`: repairs the small tessellation defects of exported STLs and refuses to write a file that is not watertight
   - `overhang.py`, `meshclash.py`, `conndist.py`, `standoffdist.py`, `pidist.py`: overhang, interference and clearance checks
@@ -168,4 +169,5 @@ The Raspberry Pi checks use the official STEP model, which is not included for l
 - **v3**: printability fixes (45° chamfers on the edge touching the bed, separate USB windows, gussets under the screw bosses)
 - **v4**: fitted to the Elecrow 7″ (C) model, holes for brass inserts, watertight exported mesh. The real Kuman display does not fit.
 - **v5**: sized on the real Kuman's measurements (tabs, holes, HDMI connector). The screen is held by two clips at the bottom and two M2.5 screws at the top; wider connector opening for the plugs; top cover bosses moved out of the tabs' path; no more pillars on the cover. Once printed, the screen does not slide under the clips: there was only 0.2 mm between tab and clip, which the printed overhang closes up.
-- **v6**: clips moved back by 0.4 mm (0.6 mm clearance behind the tab) with a 0.8 mm lead-in chamfer on the entry edge; checked with a 0.4 mm print margin. Tab holes 157 mm apart horizontally (measured), with pads, inserts and clips moved to match. Window raised by 2 mm, because the image is not centred in the glass (black border 4.75 mm on top, 8.7 mm below). Cover same as v5.
+- **v6**: clips moved back by 0.4 mm (0.6 mm clearance behind the tab) with a 0.8 mm lead-in chamfer on the entry edge; checked with a 0.4 mm print margin. Tab holes 157 mm apart horizontally (measured), with pads, inserts and clips moved to match. Window raised by 2 mm, because the image is not centred in the glass (black border 4.75 mm on top, 8.7 mm below). Cover same as v5. Once printed, the clips work but the image is cut on the side away from the HDMI: it is not centred in the glass horizontally, and the window left only 1.4 mm of margin.
+- **v7**: window centred on the measured image (black border of the glass: 4.75 mm on top, 8.5 below, 6.3 on the HDMI side, 3.45 on the other side) and larger, with 2.5 mm of margin around the image (2.25 on the side away from the HDMI, to keep at least 1.2 mm of glass under the frame). Everything else matches v6.

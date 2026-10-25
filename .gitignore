@@ -20,3 +20,6 @@ script/p6_*
 script/v6exp.json
 script/kcheck.json
 script/kcheck_names.json
+script/v7_*
+script/p7_*
+script/v7exp.json
